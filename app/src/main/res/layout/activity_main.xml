@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/mvvm_recyvleview"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:text="MVVM--RecycleView"/>
 
 </LinearLayout>
