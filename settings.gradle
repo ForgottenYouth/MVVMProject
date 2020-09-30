@@ -1,4 +1,5 @@
-include ':Module_base'
-include ':module_recyvleview'
+include ':Common'
+include ':Base'
+include ':Recyvleview'
 include ':app'
 rootProject.name = "MVVMProjectDemo"
