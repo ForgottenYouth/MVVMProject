@@ -5,9 +5,9 @@
  * Date: 2020/9/28 17:52
  * Description: 多图列表项的viewmodel
  */
-package com.leon.module_recyvleview.customviews;
+package com.leon.common.customrecycleitem.mutilimg;
 
-import com.leon.module_recyvleview.Base.BaseViewModel;
+import com.leon.base.baseviewmodel.BaseViewModel;
 
 import java.util.ArrayList;
 

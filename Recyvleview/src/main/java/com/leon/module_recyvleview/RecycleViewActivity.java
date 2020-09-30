@@ -14,9 +14,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.leon.module_recyvleview.Base.BaseViewModel;
-import com.leon.module_recyvleview.customviews.NoImageItemViewModel;
-import com.leon.module_recyvleview.customviews.SingleImageItemViewModel;
+import com.leon.base.baseviewmodel.BaseViewModel;
+import com.leon.common.customrecycleitem.noimg.NoImageItemViewModel;
+import com.leon.common.customrecycleitem.singleimg.SingleImageItemViewModel;
 
 import java.util.ArrayList;
 

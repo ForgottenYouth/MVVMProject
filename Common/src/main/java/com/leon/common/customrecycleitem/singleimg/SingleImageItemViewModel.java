@@ -5,9 +5,9 @@
  * Date: 2020/9/28 14:59
  * Description:
  */
-package com.leon.module_recyvleview.customviews;
+package com.leon.common.customrecycleitem.singleimg;
 
-import com.leon.module_recyvleview.Base.BaseViewModel;
+import com.leon.base.baseviewmodel.BaseViewModel;
 
 public class SingleImageItemViewModel extends BaseViewModel {
 

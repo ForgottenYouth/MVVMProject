@@ -13,11 +13,11 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.leon.module_recyvleview.Base.BaseRecycleViewHolder;
-import com.leon.module_recyvleview.Base.BaseViewModel;
-import com.leon.module_recyvleview.customviews.SingleImageItemView;
-import com.leon.module_recyvleview.customviews.SingleImageItemViewModel;
-import com.leon.module_recyvleview.customviews.NoImageItemView;
+import com.leon.base.baseviewholder.BaseRecycleViewHolder;
+import com.leon.base.baseviewmodel.BaseViewModel;
+import com.leon.common.customrecycleitem.singleimg.SingleImageItemView;
+import com.leon.common.customrecycleitem.singleimg.SingleImageItemViewModel;
+import com.leon.common.customrecycleitem.noimg.NoImageItemView;
 
 import java.util.ArrayList;
 

@@ -5,9 +5,9 @@
  * Date: 2020/9/28 10:47
  * Description: 自定义仅有标题的视图viewmodel
  */
-package com.leon.module_recyvleview.customviews;
+package com.leon.common.customrecycleitem.noimg;
 
-import com.leon.module_recyvleview.Base.BaseViewModel;
+import com.leon.base.baseviewmodel.BaseViewModel;
 
 public class NoImageItemViewModel extends BaseViewModel {
 }

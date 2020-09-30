@@ -5,23 +5,26 @@
  * Date: 2020/9/28 10:57
  * Description:
  */
-package com.leon.module_recyvleview.Base;
+package com.leon.base.baseviewholder;
 
 import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.leon.base.baseviewmodel.BaseViewModel;
+import com.leon.base.baseview.IBaseCustomView;
+
 public class BaseRecycleViewHolder extends RecyclerView.ViewHolder {
 
-    private BaseCustomView baseCustomView;
+    private IBaseCustomView baseCustomView;
 
-    public BaseRecycleViewHolder(@NonNull BaseCustomView itemView) {
+    public BaseRecycleViewHolder(@NonNull IBaseCustomView itemView) {
         super((View) itemView);
         baseCustomView = itemView;
     }
 
     public void bindViewModel(BaseViewModel viewModel) {
-        baseCustomView.loadData(viewModel);
+        baseCustomView.setData(viewModel);
     }
 }

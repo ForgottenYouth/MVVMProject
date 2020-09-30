@@ -5,7 +5,7 @@
  * Description:
  */
 
-package com.leon.module_recyvleview.Base;
+package com.leon.base.baseviewmodel;
 
 public class BaseViewModel {
     public String title;//标题

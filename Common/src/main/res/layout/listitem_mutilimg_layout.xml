@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.leon.module_recyvleview.customviews.MutilImgItemViewModel" />
+            type="com.leon.common.customrecycleitem.mutilimg.MutilImgItemViewModel" />
     </data>
 
     <LinearLayout
