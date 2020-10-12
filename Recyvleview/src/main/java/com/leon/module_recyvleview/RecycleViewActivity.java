@@ -8,13 +8,15 @@
 package com.leon.module_recyvleview;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.leon.base.baseviewmodel.BaseViewModel;
+import com.leon.base.baseview.BaseViewModel;
 import com.leon.base.mvvm.model.IBaseModelListener;
 import com.leon.base.mvvm.model.PagingResult;
 
@@ -38,8 +40,8 @@ public class RecycleViewActivity extends AppCompatActivity implements IBaseModel
     private void init() {
         recycleView = findViewById(R.id.recyclerview);
         mainAdapter = new RecycleViewAdapter(this);
-        model = new RecycleViewActivityModel(this);
-
+        model = new RecycleViewActivityModel();
+        model.registListener(this);
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this);
         mLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recycleView.setLayoutManager(mLinearLayoutManager);
@@ -57,7 +59,15 @@ public class RecycleViewActivity extends AppCompatActivity implements IBaseModel
     }
 
     @Override
-    public void onLoadFailure(String message) {
+    public void onLoadFailure(String message, PagingResult... pagingResults) {
+        Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
+    }
 
+    public void onRefresh(View view) {
+        model.refresh();
+    }
+
+    public void loadMore(View view) {
+        model.loadMore();
     }
 }

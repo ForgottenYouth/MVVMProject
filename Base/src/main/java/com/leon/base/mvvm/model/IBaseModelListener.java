@@ -9,12 +9,12 @@ package com.leon.base.mvvm.model;
 
 public interface IBaseModelListener<DATA> {
     /*
-    * TODO 加载成功
-    */
-    void onLoadSuccess(DATA data,PagingResult... pagingResults);
-    
+     * TODO 加载成功
+     */
+    void onLoadSuccess(DATA data, PagingResult... pagingResults);
+
     /*
-    * TODO 加载失败
-    */
-    void onLoadFailure(String message);
+     * TODO 加载失败
+     */
+    void onLoadFailure(String message, PagingResult... pagingResults);
 }

@@ -5,7 +5,7 @@
  * Description:
  */
 
-package com.leon.base.baseviewmodel;
+package com.leon.base.baseview;
 
 public class BaseViewModel {
     public String title;//标题

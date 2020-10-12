@@ -7,8 +7,6 @@
 
 package com.leon.base.baseview;
 
-import com.leon.base.baseviewmodel.BaseViewModel;
-
 public interface IBaseCustomView<T extends BaseViewModel> {
 
     void setData(T data);

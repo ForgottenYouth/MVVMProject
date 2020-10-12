@@ -17,8 +17,6 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 
-import com.leon.base.baseviewmodel.BaseViewModel;
-
 public abstract class BaseCustomView<VBINDING extends ViewDataBinding, VMODEL extends BaseViewModel>
         extends LinearLayout
         implements IBaseCustomView<VMODEL> {

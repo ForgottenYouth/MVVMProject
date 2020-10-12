@@ -7,7 +7,7 @@
  */
 package com.leon.common.customrecycleitem.mutilimg;
 
-import com.leon.base.baseviewmodel.BaseViewModel;
+import com.leon.base.baseview.BaseViewModel;
 
 import java.util.ArrayList;
 
