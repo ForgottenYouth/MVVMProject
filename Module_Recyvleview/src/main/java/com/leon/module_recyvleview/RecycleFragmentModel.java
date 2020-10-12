@@ -8,16 +8,15 @@
 package com.leon.module_recyvleview;
 
 import com.leon.base.basecustomview.BaseCustomViewModel;
-import com.leon.base.exception.NoRegistException;
 import com.leon.base.mvvm.model.BaseMVVMModel;
 import com.leon.common.customrecycleitem.noimg.NoImageItemViewModel;
 import com.leon.common.customrecycleitem.singleimg.SingleImageItemViewModel;
 
 import java.util.ArrayList;
 
-public class RecycleViewActivityModel extends BaseMVVMModel {
+public class RecycleFragmentModel extends BaseMVVMModel {
 
-    public RecycleViewActivityModel(){
+    public RecycleFragmentModel(){
         super(true,0);
     }
 

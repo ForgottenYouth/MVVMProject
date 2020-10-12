@@ -21,7 +21,7 @@ import com.leon.common.customrecycleitem.noimg.NoImageItemView;
 
 import java.util.ArrayList;
 
-public class RecycleViewAdapter extends RecyclerView.Adapter<BaseRecycleViewHolder> {
+public class RecycleFragmentAdapter extends RecyclerView.Adapter<BaseRecycleViewHolder> {
 
     private Context mContext;
 
@@ -31,7 +31,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<BaseRecycleViewHold
     public static final int PIC_TYPE = 2;
     public static final int MUTILPIC_TYPE = 3;
 
-    public RecycleViewAdapter(Context context) {
+    public RecycleFragmentAdapter(Context context) {
         mContext = context;
     }
 

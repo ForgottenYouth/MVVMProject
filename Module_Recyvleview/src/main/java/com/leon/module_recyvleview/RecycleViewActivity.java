@@ -40,22 +40,26 @@ public class RecycleViewActivity extends AppCompatActivity {
         for (int i = 0; i < 10; i++) {
             Bundle bundle = new Bundle();
             bundle.putInt("index", i);
-            RecycleFragment myTaskTabFragment = new RecycleFragment();
-            myTaskTabFragment.setArguments(bundle);
-            mFragmentsArrayList.add(myTaskTabFragment);
-            TabLayout.Tab tab = dataBinding.tablayout.newTab().setCustomView(makeTabView("tab+" + i));
-            dataBinding.tablayout.addTab(tab, false);
+            RecycleFragment fragment = new RecycleFragment();
+            fragment.setArguments(bundle);
+            mFragmentsArrayList.add(fragment);
+            dataBinding.tablayout.addTab(dataBinding.tablayout.newTab(),
+                    false);
         }
 
-
-        dataBinding.tablayout.setupWithViewPager(dataBinding.viewpager);
+        dataBinding.tablayout.setupWithViewPager(dataBinding.viewpager,false);
         TabViewPagerAdapter mViewPagerAdapter = new TabViewPagerAdapter(mFragmentsArrayList, getSupportFragmentManager());
         dataBinding.viewpager.setAdapter(mViewPagerAdapter);
+        dataBinding.viewpager.setOffscreenPageLimit(3);
+
+        for (int i = 0; i < 10; i++) {
+            dataBinding.tablayout.getTabAt(i).setCustomView(makeTabView("tab+" + i));
+        }
     }
 
     @SuppressLint("ResourceAsColor")
     private View makeTabView(String title) {
-        View tabView = LayoutInflater.from(this).inflate(R.layout.custom_tab_view_layout, null);
+        @SuppressLint("InflateParams") View tabView = LayoutInflater.from(this).inflate(R.layout.custom_tab_view_layout, null);
         TextView tabTitle = tabView.findViewById(R.id.tab_title);
         tabTitle.setText(title);
         tabTitle.setTextColor(R.color.colorAccent);

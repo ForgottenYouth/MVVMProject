@@ -33,8 +33,8 @@ import java.util.ArrayList;
 
 public class RecycleFragment extends Fragment implements IBaseModelListener<ArrayList<BaseCustomViewModel>> {
 
-    RecycleViewAdapter mAdapter;
-    RecycleViewActivityModel model;
+    RecycleFragmentAdapter mAdapter;
+    RecycleFragmentModel model;
     ArrayList<BaseCustomViewModel> dataList = new ArrayList<>();
 
     FragmentRecycleviewLayoutBinding viewDataBinding;
@@ -85,8 +85,8 @@ public class RecycleFragment extends Fragment implements IBaseModelListener<Arra
             }
         });
 
-        mAdapter = new RecycleViewAdapter(this.getActivity());
-        model = new RecycleViewActivityModel();
+        mAdapter = new RecycleFragmentAdapter(this.getActivity());
+        model = new RecycleFragmentModel();
         model.registListener(this);
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this.getActivity());
         mLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
