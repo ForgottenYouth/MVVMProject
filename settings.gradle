@@ -1,6 +1,6 @@
 include ':Net'
 include ':Common'
 include ':Base'
-include ':Recyvleview'
+include ':Module_Recyvleview'
 include ':app'
 rootProject.name = "MVVMProjectDemo"

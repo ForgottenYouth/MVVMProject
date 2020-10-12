@@ -10,7 +10,7 @@ package com.leon.common.customrecycleitem.mutilimg;
 import android.content.Context;
 import android.view.View;
 
-import com.leon.base.baseview.BaseCustomView;
+import com.leon.base.basecustomview.BaseCustomView;
 import com.leon.common.databinding.ListitemMutilimgLayoutBinding;
 
 public class MutilImgItemView extends BaseCustomView<ListitemMutilimgLayoutBinding,MutilImgItemViewModel> {

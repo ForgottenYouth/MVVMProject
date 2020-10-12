@@ -12,8 +12,8 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.leon.base.baseview.BaseViewModel;
-import com.leon.base.baseview.IBaseCustomView;
+import com.leon.base.basecustomview.BaseViewModel;
+import com.leon.base.basecustomview.IBaseCustomView;
 
 public class BaseRecycleViewHolder extends RecyclerView.ViewHolder {
 

@@ -11,14 +11,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.leon.base.baseview.BaseViewModel;
+import com.leon.base.basecustomview.BaseViewModel;
 import com.leon.base.mvvm.model.IBaseModelListener;
 import com.leon.base.mvvm.model.PagingResult;
+import com.scwang.smart.refresh.footer.ClassicsFooter;
+import com.scwang.smart.refresh.header.ClassicsHeader;
+import com.scwang.smart.refresh.layout.api.RefreshLayout;
+import com.scwang.smart.refresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smart.refresh.layout.listener.OnRefreshListener;
 
 import java.util.ArrayList;
 
@@ -38,6 +44,24 @@ public class RecycleViewActivity extends AppCompatActivity implements IBaseModel
     }
 
     private void init() {
+        RefreshLayout refreshLayout = (RefreshLayout) findViewById(R.id.refreshLayout);
+        refreshLayout.setRefreshHeader(new ClassicsHeader(this));
+        refreshLayout.setRefreshFooter(new ClassicsFooter(this));
+        refreshLayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                model.refresh();
+                refreshLayout.finishRefresh(true);
+            }
+        });
+        refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                model.loadMore();
+                refreshLayout.finishLoadMore(true);
+            }
+        });
+
         recycleView = findViewById(R.id.recyclerview);
         mainAdapter = new RecycleViewAdapter(this);
         model = new RecycleViewActivityModel();
@@ -60,14 +84,7 @@ public class RecycleViewActivity extends AppCompatActivity implements IBaseModel
 
     @Override
     public void onLoadFailure(String message, PagingResult... pagingResults) {
-        Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
-    public void onRefresh(View view) {
-        model.refresh();
-    }
-
-    public void loadMore(View view) {
-        model.loadMore();
-    }
 }

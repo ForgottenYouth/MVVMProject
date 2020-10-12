@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.leon.base.recycleview.BaseRecycleViewHolder;
-import com.leon.base.baseview.BaseViewModel;
+import com.leon.base.basecustomview.BaseViewModel;
 import com.leon.common.customrecycleitem.singleimg.SingleImageItemView;
 import com.leon.common.customrecycleitem.singleimg.SingleImageItemViewModel;
 import com.leon.common.customrecycleitem.noimg.NoImageItemView;

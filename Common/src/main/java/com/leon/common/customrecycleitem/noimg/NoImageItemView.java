@@ -11,7 +11,7 @@ import android.content.Context;
 import android.view.View;
 import android.widget.Toast;
 
-import com.leon.base.baseview.BaseCustomView;
+import com.leon.base.basecustomview.BaseCustomView;
 import com.leon.common.R;
 import com.leon.common.databinding.ListitemNoimageLayoutBinding;
 

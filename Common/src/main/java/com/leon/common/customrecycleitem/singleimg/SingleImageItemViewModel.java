@@ -7,7 +7,7 @@
  */
 package com.leon.common.customrecycleitem.singleimg;
 
-import com.leon.base.baseview.BaseViewModel;
+import com.leon.base.basecustomview.BaseViewModel;
 
 public class SingleImageItemViewModel extends BaseViewModel {
 

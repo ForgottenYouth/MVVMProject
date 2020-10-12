@@ -7,7 +7,7 @@
  */
 package com.leon.module_recyvleview;
 
-import com.leon.base.baseview.BaseViewModel;
+import com.leon.base.basecustomview.BaseViewModel;
 import com.leon.base.mvvm.model.BaseMVVMModel;
 import com.leon.common.customrecycleitem.noimg.NoImageItemViewModel;
 import com.leon.common.customrecycleitem.singleimg.SingleImageItemViewModel;
