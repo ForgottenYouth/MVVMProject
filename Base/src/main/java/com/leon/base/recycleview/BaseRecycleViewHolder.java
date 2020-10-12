@@ -12,7 +12,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.leon.base.basecustomview.BaseViewModel;
+import com.leon.base.basecustomview.BaseCustomViewModel;
 import com.leon.base.basecustomview.IBaseCustomView;
 
 public class BaseRecycleViewHolder extends RecyclerView.ViewHolder {
@@ -24,7 +24,7 @@ public class BaseRecycleViewHolder extends RecyclerView.ViewHolder {
         baseCustomView = itemView;
     }
 
-    public void bindViewModel(BaseViewModel viewModel) {
+    public void bindViewModel(BaseCustomViewModel viewModel) {
         baseCustomView.setData(viewModel);
     }
 }

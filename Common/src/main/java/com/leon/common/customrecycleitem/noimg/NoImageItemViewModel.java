@@ -7,7 +7,7 @@
  */
 package com.leon.common.customrecycleitem.noimg;
 
-import com.leon.base.basecustomview.BaseViewModel;
+import com.leon.base.basecustomview.BaseCustomViewModel;
 
-public class NoImageItemViewModel extends BaseViewModel {
+public class NoImageItemViewModel extends BaseCustomViewModel {
 }

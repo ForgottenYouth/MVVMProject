@@ -7,11 +7,11 @@
  */
 package com.leon.common.customrecycleitem.mutilimg;
 
-import com.leon.base.basecustomview.BaseViewModel;
+import com.leon.base.basecustomview.BaseCustomViewModel;
 
 import java.util.ArrayList;
 
-public class MutilImgItemViewModel extends BaseViewModel {
+public class MutilImgItemViewModel extends BaseCustomViewModel {
 
     public ArrayList<String> pics;
 }

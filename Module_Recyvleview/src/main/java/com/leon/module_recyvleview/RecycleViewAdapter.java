@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.leon.base.recycleview.BaseRecycleViewHolder;
-import com.leon.base.basecustomview.BaseViewModel;
+import com.leon.base.basecustomview.BaseCustomViewModel;
 import com.leon.common.customrecycleitem.singleimg.SingleImageItemView;
 import com.leon.common.customrecycleitem.singleimg.SingleImageItemViewModel;
 import com.leon.common.customrecycleitem.noimg.NoImageItemView;
@@ -25,7 +25,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<BaseRecycleViewHold
 
     private Context mContext;
 
-    private ArrayList<BaseViewModel> mDataList = new ArrayList<>();
+    private ArrayList<BaseCustomViewModel> mDataList = new ArrayList<>();
 
     public static final int DEFAULT_TYPE = 1;
     public static final int PIC_TYPE = 2;
@@ -35,7 +35,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<BaseRecycleViewHold
         mContext = context;
     }
 
-    public void setDataList(ArrayList<BaseViewModel> mDataList) {
+    public void setDataList(ArrayList<BaseCustomViewModel> mDataList) {
         this.mDataList = mDataList;
         notifyDataSetChanged();
     }

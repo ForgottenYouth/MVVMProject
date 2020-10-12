@@ -7,7 +7,8 @@
  */
 package com.leon.module_recyvleview;
 
-import com.leon.base.basecustomview.BaseViewModel;
+import com.leon.base.basecustomview.BaseCustomViewModel;
+import com.leon.base.exception.NoRegistException;
 import com.leon.base.mvvm.model.BaseMVVMModel;
 import com.leon.common.customrecycleitem.noimg.NoImageItemViewModel;
 import com.leon.common.customrecycleitem.singleimg.SingleImageItemViewModel;
@@ -21,8 +22,8 @@ public class RecycleViewActivityModel extends BaseMVVMModel {
     }
 
     @Override
-    public void load() {
-        ArrayList<BaseViewModel> dataList = new ArrayList<>();
+    public void load()  {
+        ArrayList<BaseCustomViewModel> dataList = new ArrayList<>();
 
         for (int i = 0; i < 3; i++) {
             if (i % 3 == 0) {

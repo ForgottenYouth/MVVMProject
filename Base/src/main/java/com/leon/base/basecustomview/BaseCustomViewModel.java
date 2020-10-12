@@ -7,7 +7,7 @@
 
 package com.leon.base.basecustomview;
 
-public class BaseViewModel {
+public class BaseCustomViewModel {
     public String title;//标题
     public String jumpUrl;//跳转地址
     public int browserNum;//浏览量

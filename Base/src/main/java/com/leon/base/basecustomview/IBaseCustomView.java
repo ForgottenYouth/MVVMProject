@@ -7,7 +7,7 @@
 
 package com.leon.base.basecustomview;
 
-public interface IBaseCustomView<T extends BaseViewModel> {
+public interface IBaseCustomView<T extends BaseCustomViewModel> {
 
     void setData(T data);
 }

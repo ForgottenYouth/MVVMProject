@@ -7,84 +7,58 @@
  */
 package com.leon.module_recyvleview;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
 
-import com.leon.base.basecustomview.BaseViewModel;
-import com.leon.base.mvvm.model.IBaseModelListener;
-import com.leon.base.mvvm.model.PagingResult;
-import com.scwang.smart.refresh.footer.ClassicsFooter;
-import com.scwang.smart.refresh.header.ClassicsHeader;
-import com.scwang.smart.refresh.layout.api.RefreshLayout;
-import com.scwang.smart.refresh.layout.listener.OnLoadMoreListener;
-import com.scwang.smart.refresh.layout.listener.OnRefreshListener;
+import com.google.android.material.tabs.TabLayout;
+import com.leon.base.viewpager.TabViewPagerAdapter;
+import com.leon.module_recyvleview.databinding.ActivityRecycleviewLayoutBinding;
 
 import java.util.ArrayList;
 
-public class RecycleViewActivity extends AppCompatActivity implements IBaseModelListener<ArrayList<BaseViewModel>> {
+public class RecycleViewActivity extends AppCompatActivity {
 
-    RecyclerView recycleView;
-    RecycleViewAdapter mainAdapter;
-    RecycleViewActivityModel model;
-    ArrayList<BaseViewModel> dataList = new ArrayList<>();
-
+    ActivityRecycleviewLayoutBinding dataBinding;
+    private ArrayList<Fragment> mFragmentsArrayList = new ArrayList<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recycleview_layout);
-        init();
+        dataBinding = DataBindingUtil.setContentView(this, R.layout.activity_recycleview_layout);
+        configTabSlideViews();
     }
 
-    private void init() {
-        RefreshLayout refreshLayout = (RefreshLayout) findViewById(R.id.refreshLayout);
-        refreshLayout.setRefreshHeader(new ClassicsHeader(this));
-        refreshLayout.setRefreshFooter(new ClassicsFooter(this));
-        refreshLayout.setOnRefreshListener(new OnRefreshListener() {
-            @Override
-            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                model.refresh();
-                refreshLayout.finishRefresh(true);
-            }
-        });
-        refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
-            @Override
-            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-                model.loadMore();
-                refreshLayout.finishLoadMore(true);
-            }
-        });
-
-        recycleView = findViewById(R.id.recyclerview);
-        mainAdapter = new RecycleViewAdapter(this);
-        model = new RecycleViewActivityModel();
-        model.registListener(this);
-        LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this);
-        mLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recycleView.setLayoutManager(mLinearLayoutManager);
-        recycleView.setAdapter(mainAdapter);
-        model.refresh();
-    }
-
-    @Override
-    public void onLoadSuccess(ArrayList<BaseViewModel> data, PagingResult... pagingResults) {
-        if (data != null && pagingResults.length > 0 && pagingResults[0].isFirst) {
-            dataList.clear();
+    private void configTabSlideViews() {
+        for (int i = 0; i < 10; i++) {
+            Bundle bundle = new Bundle();
+            bundle.putInt("index", i);
+            RecycleFragment myTaskTabFragment = new RecycleFragment();
+            myTaskTabFragment.setArguments(bundle);
+            mFragmentsArrayList.add(myTaskTabFragment);
+            TabLayout.Tab tab = dataBinding.tablayout.newTab().setCustomView(makeTabView("tab+" + i));
+            dataBinding.tablayout.addTab(tab, false);
         }
-        dataList.addAll(data);
-        mainAdapter.setDataList(dataList);
+
+
+        dataBinding.tablayout.setupWithViewPager(dataBinding.viewpager);
+        TabViewPagerAdapter mViewPagerAdapter = new TabViewPagerAdapter(mFragmentsArrayList, getSupportFragmentManager());
+        dataBinding.viewpager.setAdapter(mViewPagerAdapter);
     }
 
-    @Override
-    public void onLoadFailure(String message, PagingResult... pagingResults) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    @SuppressLint("ResourceAsColor")
+    private View makeTabView(String title) {
+        View tabView = LayoutInflater.from(this).inflate(R.layout.custom_tab_view_layout, null);
+        TextView tabTitle = tabView.findViewById(R.id.tab_title);
+        tabTitle.setText(title);
+        tabTitle.setTextColor(R.color.colorAccent);
+        return tabView;
     }
-
 }
