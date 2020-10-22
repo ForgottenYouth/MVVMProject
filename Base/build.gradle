@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 30
@@ -39,5 +40,10 @@ dependencies {
     api  'com.scwang.smart:refresh-header-material:2.0.1'    //谷歌刷新头
     api  'com.scwang.smart:refresh-header-two-level:2.0.1'   //二级刷新头
     api  'com.scwang.smart:refresh-footer-ball:2.0.1'        //球脉冲加载
-    api  'com.scwang.smart:refresh-footer-classics:2.0.1'    //经典加载
+    api  'com.scwang.smart:refresh-footer-classics:2.0.1'
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"    //经典加载
+}
+repositories {
+    mavenCentral()
 }
