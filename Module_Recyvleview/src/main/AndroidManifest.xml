@@ -5,7 +5,8 @@
 
     <application>
 
-        <activity android:name=".RecycleViewActivity">
+        <activity android:name=".RecycleViewActivity"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
                 <action android:name="android.intent.action.VIEW" />

@@ -7,28 +7,30 @@
  */
 package com.leon.base.viewpager;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import java.util.List;
 
-public class TabViewPagerAdapter extends FragmentPagerAdapter {
+public class TabViewPagerAdapter extends FragmentStateAdapter {
 
     private List<Fragment> fragmentList;
 
-    public TabViewPagerAdapter(List<Fragment> fragmentList, FragmentManager fm) {
-        super(fm,BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+    public TabViewPagerAdapter(List<Fragment> fragmentList, FragmentActivity fm) {
+        super(fm);
         this.fragmentList = fragmentList;
     }
 
+    @NonNull
     @Override
-    public int getCount() {
-        return fragmentList != null && !fragmentList.isEmpty() ? fragmentList.size() : 0;
+    public Fragment createFragment(int position) {
+        return fragmentList.get(position);
     }
 
     @Override
-    public Fragment getItem(int position) {
-        return fragmentList.get(position);
+    public int getItemCount() {
+        return fragmentList != null && !fragmentList.isEmpty() ? fragmentList.size() : 0;
     }
 }

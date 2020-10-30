@@ -7,4 +7,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.Launcher">
+        <item name="android:windowBackground">@drawable/welcome_logo</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
 </resources>

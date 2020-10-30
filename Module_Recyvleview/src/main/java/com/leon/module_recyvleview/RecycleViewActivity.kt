@@ -15,13 +15,18 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import com.google.android.material.tabs.TabLayoutMediator
+import com.google.android.material.tabs.TabLayoutMediator.TabConfigurationStrategy
 import com.leon.base.viewpager.TabViewPagerAdapter
 import com.leon.module_recyvleview.databinding.ActivityRecycleviewLayoutBinding
 import java.util.*
 
 class RecycleViewActivity : AppCompatActivity() {
+
     var dataBinding: ActivityRecycleviewLayoutBinding? = null
     private val mFragmentsArrayList = ArrayList<Fragment>()
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         dataBinding = DataBindingUtil.setContentView(this, R.layout.activity_recycleview_layout)
@@ -38,18 +43,23 @@ class RecycleViewActivity : AppCompatActivity() {
             dataBinding!!.tablayout.addTab(dataBinding!!.tablayout.newTab(),
                     false)
         }
-        dataBinding!!.tablayout.setupWithViewPager(dataBinding!!.viewpager, false)
-        val mViewPagerAdapter = TabViewPagerAdapter(mFragmentsArrayList, supportFragmentManager)
+        val mViewPagerAdapter = TabViewPagerAdapter(mFragmentsArrayList, this)
         dataBinding!!.viewpager.adapter = mViewPagerAdapter
         dataBinding!!.viewpager.offscreenPageLimit = 3
-        for (i in 0..9) {
-            dataBinding!!.tablayout.getTabAt(i)!!.customView = makeTabView("tab+$i")
-        }
+
+        dataBinding?.tablayout?.let {
+            dataBinding?.viewpager?.let { it1 ->
+                TabLayoutMediator(it, it1, true,
+                        TabConfigurationStrategy { tab, position ->
+                            tab.customView = makeTabView("tab+$position")
+                        }).attach()
+            }
+        };
     }
 
     @SuppressLint("ResourceAsColor")
     private fun makeTabView(title: String): View {
-        @SuppressLint("InflateParams") val tabView = LayoutInflater.from(this).inflate(R.layout.custom_tab_view_layout, null)
+        val tabView = LayoutInflater.from(this).inflate(R.layout.custom_tab_view_layout, null)
         val tabTitle = tabView.findViewById<TextView>(R.id.tab_title)
         tabTitle.text = title
         tabTitle.setTextColor(R.color.colorAccent)

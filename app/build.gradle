@@ -22,18 +22,14 @@ android {
         }
     }
 
-    dataBinding{
+    dataBinding {
         enabled(true)
     }
 }
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation 'androidx.appcompat:appcompat:1.2.0'
+    api project(":Base")
     api project(":Module_Recyvleview")
-    implementation "androidx.core:core-ktx:+"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-
 }
 repositories {
     mavenCentral()
