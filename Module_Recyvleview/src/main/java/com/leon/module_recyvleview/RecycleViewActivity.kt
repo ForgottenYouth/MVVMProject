@@ -19,13 +19,13 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.google.android.material.tabs.TabLayoutMediator.TabConfigurationStrategy
 import com.leon.base.viewpager.TabViewPagerAdapter
 import com.leon.module_recyvleview.databinding.ActivityRecycleviewLayoutBinding
+import com.leon.module_recyvleview.fragment.RecycleFragmentKT
 import java.util.*
 
 class RecycleViewActivity : AppCompatActivity() {
 
     var dataBinding: ActivityRecycleviewLayoutBinding? = null
     private val mFragmentsArrayList = ArrayList<Fragment>()
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +37,7 @@ class RecycleViewActivity : AppCompatActivity() {
         for (i in 0..9) {
             val bundle = Bundle()
             bundle.putInt("index", i)
-            val fragment = RecycleFragment()
+            val fragment = RecycleFragmentKT()
             fragment.arguments = bundle
             mFragmentsArrayList.add(fragment)
             dataBinding!!.tablayout.addTab(dataBinding!!.tablayout.newTab(),

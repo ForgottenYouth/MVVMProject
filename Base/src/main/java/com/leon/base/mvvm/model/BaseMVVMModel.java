@@ -7,8 +7,6 @@
  */
 package com.leon.base.mvvm.model;
 
-import com.leon.base.exception.NoRegistException;
-
 import java.lang.ref.WeakReference;
 import java.util.List;
 
@@ -32,7 +30,6 @@ public abstract class BaseMVVMModel<RESULT_DATA> {
             INIT_PAGE_NUMBER = -1;
         }
     }
-
 
     public void registListener(IBaseModelListener listener) {
         if (listener != null) {
